@@ -2,95 +2,111 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>MAZUWA｜サービス紹介</title>
+  <title>MAZUWA｜匿名・一時的プロフィール共有サービス</title>
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #f4f7fb;
-      padding: 40px;
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9fc;
       color: #333;
     }
 
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background-color: #fff;
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 24px;
-      color: #007acc;
-      margin-bottom: 16px;
+      font-size: 28px;
+      margin-bottom: 12px;
     }
 
     h2 {
-      font-size: 18px;
+      font-size: 20px;
       margin-top: 32px;
-      color: #444;
+      color: #007acc;
     }
 
     p {
-      margin: 12px 0;
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
     }
 
     a {
       color: #007acc;
       text-decoration: none;
-      font-weight: bold;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .link-box {
-      background-color: #f0f4f9;
-      padding: 12px 16px;
-      border-left: 4px solid #007acc;
-      margin: 16px 0;
+    .button-link {
+      display: inline-block;
+      margin: 12px 8px 0 0;
+      padding: 12px 20px;
+      background-color: #007acc;
+      color: white;
       border-radius: 6px;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>MAZUWA（マズワ）｜サービス紹介</h1>
+  <header>
+    <h1>MAZUWA（マズワ）</h1>
+    <p>匿名・一時的プロフィール共有サービス</p>
+  </header>
 
-    <p><strong>MAZUWA</strong>は、合コン・研修・同窓会など「つながりすぎたくない場面」でも安心して使える、<strong>匿名・一時的なプロフィール共有サービス</strong>です。</p>
+  <main>
+    <h2>MAZUWAとは？</h2>
+    <p>
+      MAZUWAは、合コン・研修・同窓会・社内イベントなどで活躍する<br>
+      「ログイン不要・匿名・一時的」なプロフィール共有サービスです。<br>
+      <br>
+      初対面の緊張を和らげ、自然な会話のきっかけを提供します。
+    </p>
 
-    <h2>使い方の流れ</h2>
-
-    <p><strong>幹事</strong>がイベントを作成し、参加者にURLを共有します。参加者はログイン不要・匿名でプロフィールを入力できます。</p>
-    <p>イベントページは<strong>イベント当日から翌日まで限定公開</strongされ、期間終了後は自動的に削除されます。</p>
-
-    <h2>① 幹事用｜イベントを作成する</h2>
-    <div class="link-box">
-      <a href="create_event.html" target="_blank">https://yuma-mat.github.io/mazuwa-demo/create_event.html</a>
-    </div>
-    <p>イベント名・開催日・公開期間・質問テンプレートを入力するだけで、プロフィール共有用のURLが発行されます。</p>
-
-    <h2>② 参加者・幹事共通｜プロフィール共有ページ</h2>
-    <div class="link-box">
-      <a href="profile_view.html" target="_blank">https://yuma-mat.github.io/mazuwa-demo/profile_view.html</a>
-    </div>
-    <p>幹事が作成したイベントページを参加者に共有し、参加者はそこから「プロフィールを入力する」ボタンをクリックして匿名で自己紹介を投稿できます。</p>
-
-    <h2>📌 現在のデモ状況</h2>
-    <p>現在はデモとして、以下の機能が確認できます：</p>
+    <h2>使い方</h2>
     <ul>
-      <li>参加者として6人分の仮プロフィールが表示されます</li>
-      <li>「ゆうま」の名前をクリックすると、詳細プロフィールページに遷移します</li>
-      <li>他の参加者をクリックしてもまだ詳細は未実装です</li>
+      <li>① <strong>幹事の方</strong>はイベントを作成 → <a href="https://yuma-mat.github.io/mazuwa-demo/create_event.html" target="_blank">イベント作成ページ</a></li>
+      <li>② <strong>参加者</strong>は幹事から共有されたURLへアクセス → <a href="https://yuma-mat.github.io/mazuwa-demo/profile_view.html" target="_blank">プロフィール一覧ページ</a></li>
+      <li>③ 「プロフィールを入力する」から自己紹介を作成（匿名・ログイン不要）</li>
+      <li>④ 一覧から気になる人の名前をタップ → 詳細プロフィールを閲覧</li>
+      <li>※ 現在はデモとして「ゆうま」だけプロフィールが閲覧可能です</li>
     </ul>
 
-    <p>今後、AI補助やテンプレ選択、写真アップロードなどの機能も追加予定です。</p>
+    <h2>MAZUWAの特長</h2>
+    <ul>
+      <li>✔ ログイン不要・匿名OKで気軽に参加できる</li>
+      <li>✔ AIが自然な自己紹介文をサポート（開発中）</li>
+      <li>✔ イベント翌日に自動削除でプライバシーも安心</li>
+      <li>✔ 幹事の負担も最小限。URLを配るだけでOK</li>
+    </ul>
 
-    <h2>🔗 お問い合わせ・改善フィードバック</h2>
-    <p>GitHubリポジトリ：<a href="https://github.com/yuma-mat/mazuwa-demo" target="_blank">https://github.com/yuma-mat/mazuwa-demo</a></p>
-  </div>
+    <h2>今すぐ試してみる</h2>
+    <a class="button-link" href="https://yuma-mat.github.io/mazuwa-demo/create_event.html" target="_blank">イベントを作成</a>
+    <a class="button-link" href="https://yuma-mat.github.io/mazuwa-demo/profile_view.html" target="_blank">プロフィール一覧を見る</a>
+
+    <footer>
+      &copy; 2025 MAZUWA | Demo version
+    </footer>
+  </main>
 </body>
 </html>
