@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イベント作成｜MAZUWA</title>
+  <style>
+    :root {
+      --main-color: #4a90e2;
+      --accent-bg: #e0f0ff;
+      --page-bg: #f4f6fa;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: var(--page-bg);
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 24px;
+      color: var(--main-color);
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    #template-menu {
+      padding: 8px;
+      font-size: 14px;
+      width: 220px;
+    }
+
+    .question-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .question-group input[type="text"] {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .switch-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 22px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 34px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    }
+
+    .switch input:checked + .slider {
+      background-color: var(--main-color);
+    }
+
+    .switch input:checked + .slider:before {
+      transform: translateX(18px);
+    }
+
+    .remove-button {
+      background-color: #fbecec;
+      color: #cc0000;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #add-button {
+      display: block;
+      width: 90%;
+      background-color: var(--accent-bg);
+      color: var(--main-color);
+      border: 2px dashed var(--main-color);
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 20px auto 10px auto;
+    }
+
+    .button {
+      margin-top: 24px;
+      background-color: var(--main-color);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>イベント作成</h1>
+
+    <label>イベント名</label>
+    <input type="text" class="form-field" placeholder="例：7/30 合コン @渋谷">
+
+    <label>開催日時</label>
+    <input type="datetime-local" class="form-field">
+
+    <label>公開期間</label>
+    <select class="form-field">
+      <option value="today">当日中</option>
+      <option value="tomorrow">翌日まで</option>
+      <option value="custom">カスタム日付</option>
+    </select>
+
+    <label>イベント概要</label>
+    <textarea rows="3" class="form-field" placeholder="例：研修・合コン・同窓会など、初対面でも気軽に話せるようにプロフィールを共有します"></textarea>
+
+    <label>参加コード（任意）</label>
+    <input type="text" class="form-field" placeholder="入力しなければ誰でも参加できます">
+
+    <div class="question-header">
+      <h2>プロフィール項目</h2>
+      <select id="template-menu">
+        <option value="">テンプレートから選択</option>
+        <option value="training">研修・職場</option>
+        <option value="gokon">合コン・街コン</option>
+        <option value="circle">ゼミ合宿・サークル</option>
+        <option value="dousoukai">同窓会</option>
+        <option value="shanaievent">社内イベント・部署交流</option>
+        <option value="matching">オフ会</option>
+        <option value="salon">社会人サロン・勉強会</option>
+        <option value="freeaddress">フリーアドレス・異動直後</option>
+      </select>
+    </div>
+
+    <div id="question-container">
+      <div class="question-group">
+        <input type="text" value="あなたの名前（ニックネーム）" disabled>
+      </div>
+      <div class="question-group">
+        <input type="text" placeholder="例：休日は何をしていますか？">
+        <button class="remove-button">✕</button>
+        <label class="switch-label">
+          <div class="switch">
+            <input type="checkbox" class="optional-toggle" checked>
+            <span class="slider"></span>
+          </div>
+          <span>必須</span>
+        </label>
+      </div>
+      <div class="question-group">
+        <input type="text" placeholder="例：好きな食べ物は？">
+        <button class="remove-button">✕</button>
+        <label class="switch-label">
+          <div class="switch">
+            <input type="checkbox" class="optional-toggle" checked>
+            <span class="slider"></span>
+          </div>
+          <span>必須</span>
+        </label>
+      </div>
+      <div class="question-group">
+        <input type="text" placeholder="例：最近ハマっていることは？">
+        <button class="remove-button">✕</button>
+        <label class="switch-label">
+          <div class="switch">
+            <input type="checkbox" class="optional-toggle" checked>
+            <span class="slider"></span>
+          </div>
+          <span>必須</span>
+        </label>
+      </div>
+    </div>
+
+    <button id="add-button">＋ 質問を追加</button>
+    <button class="button">イベントを作成する</button>
+  </div>
+
+  <script>
+    const container = document.getElementById("question-container");
+    const addButton = document.getElementById("add-button");
+    const templateMenu = document.getElementById("template-menu");
+
+    const templates = {
+      training: ["出身地はどこですか？", "学生時代に頑張っていたことは？", "休日は何をしていますか？", "最近ハマっていることは？", "ひとことお願いします！"],
+      gokon: ["休日の過ごし方は？", "好きな食べ物・飲み物は？", "理想のデートプランは？", "自分の性格を一言で言うと？", "最近キュンとしたことは？"],
+      circle: ["好きな漫画・映画・音楽は？", "趣味や特技は？", "どんなことにハマってる？", "好きな旅行先・行きたい場所は？", "最後に自由コメント"],
+      dousoukai: ["現在の仕事や生活について", "思い出深い学校のエピソード", "学生時代にやっていたこと", "今も続けている趣味", "同窓会への一言"],
+      shanaievent: ["所属部署・業務内容（任意）", "最近のマイブームは？", "好きなランチのお店", "性格を一言で！", "みなさんへ一言"],
+      matching: ["趣味・休日の過ごし方", "最近観て良かった映画", "理想の休日の過ごし方", "自分の性格を一言で！", "ひとことどうぞ"],
+      salon: ["参加のきっかけ・目的", "好きな本・ジャンル", "最近の関心ごと", "得意なこと・できること", "ひとこと自由に"],
+      freeaddress: ["所属・よくいる場所", "仕事内容・得意なこと", "最近の趣味・息抜き", "話しかけられやすいタイミング", "ひとこと！"]
+    };
+
+    function attachEvents(group) {
+      const removeBtn = group.querySelector(".remove-button");
+      if (removeBtn) {
+        removeBtn.addEventListener("click", () => {
+          group.remove();
+        });
+      }
+    }
+
+    document.querySelectorAll(".question-group").forEach(group => attachEvents(group));
+
+    addButton.addEventListener("click", () => {
+      const newGroup = document.createElement("div");
+      newGroup.className = "question-group";
+      newGroup.innerHTML = `
+        <input type="text" placeholder="例：あなたの長所は？">
+        <button class="remove-button">✕</button>
+        <label class="switch-label">
+          <div class="switch">
+            <input type="checkbox" class="optional-toggle" checked>
+            <span class="slider"></span>
+          </div>
+          <span>必須</span>
+        </label>
+      `;
+      container.appendChild(newGroup);
+      attachEvents(newGroup);
+    });
+
+    templateMenu.addEventListener("change", () => {
+      const selected = templateMenu.value;
+      if (!templates[selected]) return;
+
+      const fixed = container.querySelectorAll(".question-group")[0];
+      container.innerHTML = "";
+      container.appendChild(fixed);
+
+      templates[selected].forEach(q => {
+        const newGroup = document.createElement("div");
+        newGroup.className = "question-group";
+        newGroup.innerHTML = `
+          <input type="text" value="${q}">
+          <button class="remove-button">✕</button>
+          <label class="switch-label">
+            <div class="switch">
+              <input type="checkbox" class="optional-toggle" checked>
+              <span class="slider"></span>
+            </div>
+            <span>必須</span>
+          </label>
+        `;
+        container.appendChild(newGroup);
+        attachEvents(newGroup);
+      });
+
+      templateMenu.selectedIndex = 0;
+    });
+  </script>
+</body>
+</html>

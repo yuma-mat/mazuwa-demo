@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プロフィール一覧｜MAZUWA</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f7fb;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .event-info {
+      margin-bottom: 24px;
+      border-left: 4px solid #007acc;
+      padding-left: 12px;
+    }
+
+    .event-info h2 {
+      font-size: 20px;
+      margin-bottom: 4px;
+      color: #007acc;
+    }
+
+    .event-info p {
+      margin: 2px 0;
+      color: #444;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin: 16px 0;
+      color: #333;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .profile-card svg {
+      width: 80px;
+      height: 80px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .profile-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .profile-list li {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ccc;
+      background: #fff;
+    }
+
+    .profile-list a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+
+    .input-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+      margin-top: 30px;
+    }
+
+    .input-button:hover {
+      background-color: #005f99;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="event-info">
+      <h2>7/30 合コン @渋谷</h2>
+      <p><strong>日時：</strong>2025年7月30日（水） 19:00～</p>
+      <p><strong>概要：</strong>気軽に話せる飲み会です！</p>
+      <p><strong>公開期間：</strong>翌日まで（7/31 23:59まで）</p>
+    </div>
+
+    <h1>プロフィール一覧</h1>
+
+    <div id="grid-view" class="profile-grid" style="display: none;"></div>
+    <ul id="list-view" class="profile-list" style="display: none;"></ul>
+
+    <div class="button-container">
+      <a href="profile_imput.html" class="input-button">プロフィールを入力する</a>
+    </div>
+
+  </div>
+
+  <script>
+    const profiles = [
+      { name: 'ゆうま', photo: '' },
+      { name: 'なお', photo: '' },
+      { name: 'さとみ', photo: '' },
+      { name: 'けんた', photo: '' },
+      { name: 'まみ', photo: '' },
+      { name: 'しゅん', photo: '' }
+    ];
+
+    const svgIcon = `
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+      </svg>`;
+
+    const gridView = document.getElementById('grid-view');
+    const listView = document.getElementById('list-view');
+
+    if (profiles.length <= 6) {
+      gridView.style.display = 'grid';
+
+      profiles.forEach((p, i) => {
+        const card = document.createElement('div');
+        card.className = 'profile-card';
+
+        const href = (p.name === 'ゆうま') ? 'profile_yuma.html' : `profile.html?id=${i}`;
+
+        card.innerHTML = `
+          <a href="${href}">
+            ${svgIcon}
+            <div>${p.name}</div>
+          </a>
+        `;
+        gridView.appendChild(card);
+      });
+
+    } else {
+      listView.style.display = 'block';
+
+      profiles.forEach((p, i) => {
+        const href = (p.name === 'ゆうま') ? 'profile_yuma.html' : `profile.html?id=${i}`;
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${href}">${p.name}</a>`;
+        listView.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
