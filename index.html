@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MAZUWA｜サービス紹介</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f7fb;
+      padding: 40px;
+      color: #333;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #007acc;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 32px;
+      color: #444;
+    }
+
+    p {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .link-box {
+      background-color: #f0f4f9;
+      padding: 12px 16px;
+      border-left: 4px solid #007acc;
+      margin: 16px 0;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MAZUWA（マズワ）｜サービス紹介</h1>
+
+    <p><strong>MAZUWA</strong>は、合コン・研修・同窓会など「つながりすぎたくない場面」でも安心して使える、<strong>匿名・一時的なプロフィール共有サービス</strong>です。</p>
+
+    <h2>使い方の流れ</h2>
+
+    <p><strong>幹事</strong>がイベントを作成し、参加者にURLを共有します。参加者はログイン不要・匿名でプロフィールを入力できます。</p>
+    <p>イベントページは<strong>イベント当日から翌日まで限定公開</strongされ、期間終了後は自動的に削除されます。</p>
+
+    <h2>① 幹事用｜イベントを作成する</h2>
+    <div class="link-box">
+      <a href="create_event.html" target="_blank">https://yuma-mat.github.io/mazuwa-demo/create_event.html</a>
+    </div>
+    <p>イベント名・開催日・公開期間・質問テンプレートを入力するだけで、プロフィール共有用のURLが発行されます。</p>
+
+    <h2>② 参加者・幹事共通｜プロフィール共有ページ</h2>
+    <div class="link-box">
+      <a href="profile_view.html" target="_blank">https://yuma-mat.github.io/mazuwa-demo/profile_view.html</a>
+    </div>
+    <p>幹事が作成したイベントページを参加者に共有し、参加者はそこから「プロフィールを入力する」ボタンをクリックして匿名で自己紹介を投稿できます。</p>
+
+    <h2>📌 現在のデモ状況</h2>
+    <p>現在はデモとして、以下の機能が確認できます：</p>
+    <ul>
+      <li>参加者として6人分の仮プロフィールが表示されます</li>
+      <li>「ゆうま」の名前をクリックすると、詳細プロフィールページに遷移します</li>
+      <li>他の参加者をクリックしてもまだ詳細は未実装です</li>
+    </ul>
+
+    <p>今後、AI補助やテンプレ選択、写真アップロードなどの機能も追加予定です。</p>
+
+    <h2>🔗 お問い合わせ・改善フィードバック</h2>
+    <p>GitHubリポジトリ：<a href="https://github.com/yuma-mat/mazuwa-demo" target="_blank">https://github.com/yuma-mat/mazuwa-demo</a></p>
+  </div>
+</body>
+</html>
