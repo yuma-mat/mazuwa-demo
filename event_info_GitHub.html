@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>MAZUWA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<style>
+		
+		
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container-flex">
+			<div class="inner text-light">
+				<img id="logo" src="logo_white.png" alt="MAZUWA ロゴ">
+				<h1 class="title fw-semibold">MAZUWA<br>はじめましてをもっと楽しく</h1>
+			</div>
+		</div>
+	</header>
+	<main layout:fragment="main_content" class="bg-light">
+		<div class="container py-1">
+		<div class="row justify-content-center">
+			<div class="col-lg-9 col-xl-8 col-12">
+				<div class="card shadow-sm border-0 rounded-4 p-4 p-md-5">
+					<form th:action="@{/}" method="post">
+						<label for="eventName" class="form-label">
+							<span class="step me-2">STEP1</span>イベント名
+						</label>
+						<input type="text" class="form-control" id="eventName" name="eventName"
+						placeholder="例：ボードゲーム交流会 ＠渋谷" required maxlength="100">
+						
+						<label for="eventDate" class="form-label">
+							<span class="step me-2">STEP2</span>開催日
+						</label>
+						<input type="date" class="form-control" id="eventDate" name="eventDate" required>
+						
+						<label for="description" class="form-label">MEMO</label>
+						<textarea class="form-control p-3 pt-4 pb-4" rows="4" id="description" name="description" maxlength="10000"
+						placeholder="例：
+開催場所 居酒屋〇〇渋谷店
+開催時間 18:00～21:00
+参加費　 3000円"></textarea>
+						<div>
+							<button type="button" class="btn advBtn">&GT; 詳細設定</button>
+						</div>
+						<div class="text-center">
+							<button class="btn nextPage btn-lg w-75 mx-auto" type="submit">次へ</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</main>
+	<footer class="container-flex bg-light">
+		<div class="container ">
+			<div class="row justify-content-center text-center">
+				<div class="col-lg-7 col-xl-6 col-12">
+					<p class="mt-4">&COPY; 2025 MAZUWA. All rights reserved.</p>
+					<div class="inner">
+						<a href="" >利用規約</a> 
+						<a href="" >プライバシーポリシー</a> 
+						<a href="" >お問い合わせ</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

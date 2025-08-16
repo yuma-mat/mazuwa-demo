@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Noto Sans JP';
+}
+
+footer {
+	padding-top: 64px;
+	padding-bottom: 100pt;
+}
+
+header .inner {
+	background-color: #1D9E73;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	
+}
+
+
+footer .inner {
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+header .inner img {
+	width: 40pt;
+	height: auto;
+}
+
+@media (max-width: 768px){
+	header .inner {
+		padding-top: 24px;
+		padding-bottom: 24px;
+	}
+	
+	.inner h1 {
+		font-size: 25px;
+	}
+	.inner img {
+		width: 30px;
+		height: auto;
+	}
+}
+
+
+/*main css*/
+.step {
+	display: inline-block;
+	padding: 0 10px;             /* 上下・左右の余白 */
+	background-color: #FF6A33;     /* オレンジ色 */
+	color: #fff;                   /* 白文字 */
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: 8px;  
+}
+/*Bootstrapの -1=4px, -2=8px, -3=16px, -4=24px, -5=48px*/
+
+.form-label {
+	font-size: 20px;
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: bold ;
+}
+
+.form-control {
+	margin-bottom: 24px;
+}
+
+.question {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.question-label {
+	font-weight: bold;
+}
+
+.nextPage {
+	background-color: #F3511D;
+	color: white;
+	border-radius: 12px;
+	transition: transform 0.05s ease, box-shadow 0.2s ease;	
+	margin-top: 48px;
+	margin-bottom: 64px;
+}
+
+.nextPage:hover {
+	background-color: #FF551E;
+	color: white;
+	transform: translateY(-1px);
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,0.08);
+}
+
+.nextPage:active,
+.nextPage:focus {
+  background-color: #d94f20; /* 少し暗くするか基本色に戻す */
+  color: #fff;
+  box-shadow: none; /* クリック時の枠線や影を消す */
+}
+
+.advBtn {
+	margin-top: 16px;
+	margin-bottom: 24px;
+	color: #1A73E8;
+}
+
+.advBtn:hover {
+	color: #1558B0;
+}
+
+.advBtn:active {
+	color: #0D47A1;
+}
+
+.warn {
+	margin-left: 5px;
+	color: #E53935;
+	font-size: small;
+}
+
+
+.addQuestion {
+  border: 1px solid #3BAFDA;   /* Primary色 */
+  color: white;
+  background-color: #3BAFDA;   /* 薄い水色 */
+  transition: background-color 0.1s ease, color 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.addQuestion:hover {
+  background-color: #2FA0CC;
+  color: white;
+}
+.addQuestion:active {
+  background-color:#2486AC !important;      /* 背景が白に */
+  color: white !important;               /* 文字色はそのままPrimary */
+}
+
+.deleteBtn {
+  background-color: #DC2F2F;
+  border-color: #DC2F2F;
+  color: #fff;
+  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.deleteBtn:hover {
+  background-color: #C62828!important;
+  color: #fff!important;
+}
+.deleteBtn:active {
+  background-color: #B71C1C!important;       /* 背景が白に */
+  color: #fff!important;               /* 文字色が赤に */
+  border-color:#B71C1C!important;        /* 枠線も赤 */
+}

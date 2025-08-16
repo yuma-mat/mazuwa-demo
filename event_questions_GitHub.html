@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>MAZUWA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<style>
+		
+		
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container-flex">
+			<div class="inner text-light">
+				<img id="logo" src="logo_white.png" alt="MAZUWA ロゴ">
+				<h1 class="title fw-semibold">MAZUWA<br>はじめましてをもっと楽しく</h1>
+			</div>
+		</div>
+	</header>
+	<main class="bg-light">
+		<div class="container py-1">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 col-xl-6 col-12">
+				<div class="card shadow-sm border-0 rounded-4 p-4 p-md-5">
+					<form th:action="@{/}" method="post">
+						<label for="name" class="form-label">
+							名前<span class="warn">※変更できません</span>
+						</label>
+						<input type="text" class="form-control" id="name" name="name"
+						placeholder="名前（ニックネーム）を入力してください" disabled>
+						
+						<label class="form-label">
+							<span class="step me-2">STEP3</span>質問を作成してください
+						</label>
+						
+						<div class="question">
+							<label class="question-label">質問１</label>
+							<div class="row">
+								<div class="col-sm-11 col-10">
+									<input type="text" name="questions[]" class="form-control"
+									placeholder="例：休日は何をしていますか？">
+								</div>
+								<div class="col-1">
+									<button type="button" class="btn deleteBtn me-2">×</button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="question">
+							<label class="question-label">質問２</label>
+							<div class="row">
+								<div class="col-sm-11 col-10">
+									<input type="text" name="questions[]" class="form-control"
+									placeholder="例：好きな食べ物は？">
+								</div>
+								<div class="col-1">
+									<button type="button" class="btn deleteBtn me-2">×</button>
+								</div>
+							</div>
+						</div>
+						
+						<div class="question">
+							<label class="question-label">質問３</label>
+							<div class="row">
+								<div class="col-sm-11 col-10">
+									<input type="text" name="questions[]" class="form-control"
+									placeholder="例：最近ハマっていることは？">
+								</div>
+								<div class="col-1">
+									<button type="button" class="btn deleteBtn me-2">×</button>
+								</div>
+							</div>
+						</div>
+						
+						<button type="button" class="btn addQuestion mt-4 mb-4 w-100">+ 質問を追加する</button>
+						
+						
+						<div>
+							<button type="button" class="btn advBtn">&GT; 詳細設定</button>
+						</div>
+						<div class="text-center">
+							<button class="btn btn-danger nextPage btn-lg w-75 mx-auto" type="submit">イベントをつくる</button>
+						</div>
+						
+						
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+	</main>
+	<footer class="container-flex bg-light">
+		<div class="container ">
+			<div class="row justify-content-center text-center">
+				<div class="col-lg-7 col-xl-6 col-12">
+					<p class="mt-4">&COPY; 2025 MAZUWA. All rights reserved.</p>
+					<div class="inner">
+						<a href="" >利用規約</a> 
+						<a href="" >プライバシーポリシー</a> 
+						<a href="" >お問い合わせ</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
