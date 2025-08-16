@@ -27,13 +27,13 @@ footer .inner {
 }
 
 header .inner img {
-	width: 400pt;
+	width: 40pt;
 	height: auto;
 }
 
 @media (max-width: 768px){
 	header .inner {
-		padding-top: 240px;
+		padding-top: 24px;
 		padding-bottom: 24px;
 	}
 	
